@@ -1,78 +1,15 @@
 // Определение интерфейса продукта
-import { ApiListResponse } from '../components/base/api';
 
-type Category =
-	| 'софт-скил'
-	| 'хард-скил'
-	| 'другое'
-	| 'дополнительное'
-	| 'кнопка';
-interface IProduct {
-	id: string;
-	description: string;
-	image: string;
-	title: string;
-	category: Category;
-	price: number | null;
-}
-interface ApiProductResponse {
-	data: ApiListResponse<IProduct>;
-	setList(): void;
-	getProduct(id: string): IProduct;
-}
-// Определение интерфейса списка продуктов
+import { IProduct } from '../components/base/models';
 
-type Payment = 'нал' | 'безнал';
-interface IUser {
-	email: string;
-	phone: string;
-	address: string;
-	payment: Payment;
-}
+//loadApi -> Products -> IProcutListView(Products.items).render() -> onclick(openModal(Product)) -> onAdd(Basket.addd(Product)) -> onRemove(Basket.remove(Product))
+//click(Basket) -> Cart.get() -> BasketView.render(cart.items, cart.total) ->
+//onSend(Order.addItems(Basket))form_1.render()) -> form_1.onSend(Order.add(form_1.data)) -> then(form_2.render()) -> form_2.onSend(Order.add(form_2.data)) -> onPay(Order.send().then(final.render(cart.total)))
 
-interface ICart {
-	products: IProduct[];
-	addProduct(product: IProduct): void;
-	removeProduct(productId: string): void;
-	getTotalPrice(): number;
-}
-type ViewCart = {
-	products: ViewProduct[];
-	totalPrice: number;
-};
-interface IOrder {
-	user: IUser;
-	products: IProduct[];
-	totalPrice: number;
-}
-type ViewProduct = {
-	id: string;
-	description: string;
-	image: string;
-	title: string;
-	category: Category;
-	price: number | null;
-	inCart: boolean;
-};
-interface IProductCard {
-	product: IProduct;
-	inCart: boolean;
-	render(): HTMLElement; // Метод для рендеринга карточки продукта
-}
-
-interface IProductModal {
-	product: IProduct;
-	open(): void; // Метод для открытия модального окна
-	close(): void; // Метод для закрытия модального окна
-	render(): HTMLElement; // Метод для рендеринга содержимого модального окна
-}
-
-interface ICartView {
-	cart: ICart;
-	render(): HTMLElement; // Метод для рендеринга содержимого корзины
-}
-
-interface IMainPage {
-	products: IProduct[];
-	render(): HTMLElement; // Метод для рендеринга списка продуктов на главной странице
-}
+//Api.get(...).then((res:IProduct)=> {
+//	const product = new Product(res);
+//   const products = new Products(product);
+//    const productsView = new ProductsView(products);
+//    productsView.render();
+//
+//})
