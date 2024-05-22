@@ -490,3 +490,87 @@ _modal:open_: Событие открытия модального окна.
 _modal:close_: Событие закрытия модального окна.
 
 Описание: Генерируется при закрытии модального окна. Обработчик вызывает метод отображения для разблокировки страницы.
+
+## Типы и интерфейсы
+
+```
+type TPayment = 'онлайн' | 'при получении';
+
+interface IProduct {
+	id: string;
+	category: string;
+	title: string;
+	description: string;
+	price: number | null;
+	image?: string;
+	selected?: boolean;
+	index?: number;
+}
+
+interface IPage {
+	catalog: HTMLElement[];
+	counter: number;
+	locked: boolean;
+}
+
+interface IContacts {
+	email?: string;
+	phone?: string;
+}
+
+interface IDelivery {
+	payment?: TPayment;
+	address?: string;
+}
+
+interface IOrder extends IContacts, IDelivery {
+	items: string[];
+	total: number;
+}
+
+interface ISuccess {
+	id: string;
+	total: number;
+}
+
+interface IAppState {
+	catalog: IProduct[];
+	basket: IProduct[] | [];
+	preview: string | null;
+	order: IOrder | null;
+}
+
+interface ICardActions {
+	onClick: (event: MouseEvent) => void;
+}
+
+type FormError = Partial<Record<keyof IOrder, string>>;
+
+type ApiListResponse<Type> = {
+	total: number;
+	items: Type[];
+};
+
+type ApiPostMethods = 'POST' | 'PUT' | 'DELETE';
+
+interface IWebApi {
+	getProducts: () => Promise<IProduct[]>;
+	postOrder: (order: IOrder) => Promise<ISuccess>;
+}
+type CatalogChangeEvent = {
+	catalog: IProduct[];
+};
+interface ICartView {
+	items: HTMLElement[];
+	selected: string[];
+	total: number;
+}
+interface ICartItem {
+	title: string;
+	price: number;
+	index: number;
+	description: string;
+	category: string;
+	id?: string;
+}
+```
