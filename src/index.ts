@@ -10,7 +10,7 @@ import { AppState, Product } from './components/model/appData';
 import { Cart, CartItem } from './components/view/viewCart';
 import { ViewModal } from './components/view/general/viewModal';
 import { IProduct, IDelivery, IContacts, CatalogChangeEvent } from './types';
-import { Contacts, OrderForm } from './components/view/viewOrder';
+import { Contacts, Delivery } from './components/view/viewOrder';
 import { Success } from './components/view/viewSuccess';
 
 const api = new WebApi(CDN_URL, API_URL);
@@ -33,7 +33,7 @@ const modal = new ViewModal(
 	events
 );
 const cart = new Cart(cloneTemplate(templates.cart), events);
-const orderForm = new OrderForm(cloneTemplate(templates.order), events);
+const orderForm = new Delivery(cloneTemplate(templates.order), events);
 const contacts = new Contacts(cloneTemplate(templates.contacts), events);
 const success = new Success(cloneTemplate(templates.success), {
 	onClick: () => modal.close(),

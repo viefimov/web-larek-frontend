@@ -3,7 +3,7 @@ import { IContacts, IDelivery } from '../../types';
 import { ensureElement } from '../../utils/utils';
 import { ViewForm } from './general/viewForm';
 
-export class OrderForm extends ViewForm<IDelivery> {
+export class Delivery extends ViewForm<IDelivery> {
 	protected _paymentContainer: HTMLDivElement;
 	protected _paymentButton: HTMLButtonElement[];
 	protected _addressInput: HTMLInputElement;
