@@ -6,7 +6,7 @@ import { EventEmitter } from './components/present/events';
 import { ensureElement, cloneTemplate } from './utils/utils';
 import { Page } from './components/view/viewPage';
 import { Card } from './components/view/viewCard';
-import { AppState, Product } from './components/model/appData';
+import { AppState, Product } from './components/model/appState';
 import { Cart, CartItem } from './components/view/viewCart';
 import { ViewModal } from './components/view/general/viewModal';
 import { IProduct, IDelivery, IContacts, CatalogChangeEvent } from './types';
