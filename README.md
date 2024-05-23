@@ -317,7 +317,7 @@ get total(): number: Возвращает общую сумму корзины.
 
 ### Delivery: Класс для работы с формой заказа.
 
-Наследуется от Form<IDelivery>
+Наследуется от ViewForm<IDelivery>
 
 Конструктор:
 
@@ -337,7 +337,7 @@ set address(value: string): Устанавливает адрес доставк
 
 ### Contacts: Класс для работы с контактной формой.
 
-Наследуется от Form<IContacts>
+Наследуется от ViewForm<IContacts>
 
 Конструктор:
 
@@ -519,7 +519,7 @@ interface IContacts {
 }
 
 interface IDelivery {
-	payment?: TPayment;
+	payment?: string;
 	address?: string;
 }
 

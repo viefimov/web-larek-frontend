@@ -23,7 +23,7 @@ export interface IContacts {
 }
 
 export interface IDelivery {
-	payment?: TPayment;
+	payment?: string;
 	address?: string;
 }
 

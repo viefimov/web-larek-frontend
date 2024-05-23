@@ -112,7 +112,7 @@ events.on('order:open', () => {
 			valid: orderForm.valid,
 			errors: orderForm.errors,
 			address: '',
-			payment: 'онлайн',
+			payment: '',
 		}),
 	});
 });

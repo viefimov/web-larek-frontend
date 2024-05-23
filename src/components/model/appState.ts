@@ -17,7 +17,7 @@ export class AppState extends BaseModel<IAppState> {
 	cart: IProduct[] = [];
 	preview: string | null;
 	order: IOrder = {
-		payment: 'онлайн',
+		payment: '',
 		items: [],
 		total: 0,
 		email: '',
